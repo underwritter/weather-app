@@ -1,0 +1,16 @@
+#ide folder
+/.idea
+
+#VScode folder
+/.vscode 
+
+#dependences
+/node_modules
+/node_modules_working
+/node_modules_
+/node_modules__
+/
+
+#production
+/dist
+
