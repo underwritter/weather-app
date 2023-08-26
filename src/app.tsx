@@ -1,16 +1,12 @@
 import React from "react";
+import "./style.sass";
+
+import {AppRouter} from "./components/app-router/app-router";
 
 function App() {
   return (
-    <div
-      style={{
-        padding: "20px",
-        border: "solid 2px red",
-        color: "white",
-        background: "black",
-      }}
-    >
-      react setup from scratch without cra testing ts"
+    <div className="App">
+      <AppRouter />
     </div>
   );
 }
