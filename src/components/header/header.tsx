@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
 import "./style.sass";
 import {Path} from "../../constants/path";
 import {CustomLink} from "../custom-link/custom-link";

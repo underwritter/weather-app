@@ -1,8 +1,8 @@
-import React, {useState, FC} from "react";
+import React, {FC} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 import {Path} from "../../constants/path";
-import {INITIAL_STATE, linkStyle} from "./constants";
-import { ActiveLink } from "./types";
+import {linkStyle} from "./constants";
+import {ActiveLink} from "./types";
 
 export interface CustomLinkProps {
   title: string;
