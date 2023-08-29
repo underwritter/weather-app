@@ -3,13 +3,13 @@ import { Path } from "../../constants/path";
 export const HEADER_PAGE_ITEMS = [
     {
         className: 'titular flowtext',
-        path: Path.Home,
+        path: Path.Weather,
         title: 'WeatherYou',
     },
     {
         className: '',
-        path: Path.Weather,
-        title: 'Погода'
+        path: Path.Home,
+        title: 'Цитата дня'
     },
     {
         className: '',
