@@ -26,14 +26,12 @@ export const authPageSlice = createSlice({
   initialState: initialAuthState,
   reducers: {
     setUserInfo(state, action: PayloadAction<AuthPageState>) {
-      state.diskSpace = action.payload.diskSpace;
-      state.email = action.payload.email;
-      state.files = action.payload.files;
-      state.name = action.payload.name;
-      state.password = action.payload.password;
-      state.usedSpace = action.payload.usedSpace;
+      Object.assign(state, action.payload);
+    },
+    setInitialUserData() {
+      return initialAuthState;
     },
   },
 });
 
-export const {setUserInfo} = authPageSlice.actions;
+export const {setUserInfo, setInitialUserData} = authPageSlice.actions;

@@ -11,6 +11,11 @@ export const InputField = <T extends object>({
   placeholder,
 }: FieldProps<T>) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const spanErrMessage = (
+    <span className="span_error_message">
+      {(errors[name]?.message as string) ?? ""}
+    </span>
+  );
 
   const toggleClass = () => {
     type = "text";
@@ -31,9 +36,7 @@ export const InputField = <T extends object>({
           className={isShowPassword ? "hide_password" : "show_password"}
           onClick={toggleClass}
         ></div>
-        <span className="span_error_message">
-          {(errors[name]?.message as string) ?? ""}
-        </span>
+        {spanErrMessage}
       </div>
     );
   } else {
@@ -46,9 +49,7 @@ export const InputField = <T extends object>({
           type={type}
           className="custom_input"
         />
-        <span className="span_error_message">
-          {(errors[name]?.message as string) ?? ""}
-        </span>
+        {spanErrMessage}
       </div>
     );
   }

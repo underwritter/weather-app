@@ -1,4 +1,4 @@
-import {initialAuthState, setUserInfo} from "../../store/slices/auth.slice";
+import {initialAuthState, setInitialUserData, setUserInfo} from "../../store/slices/auth.slice";
 import {useAuthorizationMutation} from "../../store/api/user.api";
 import {useAppDispatch} from "../../hooks/redux";
 import {AuthFields} from "./auth-form.types";
@@ -15,7 +15,7 @@ export const useAuth = () => {
     try {
       const response = await authorization(data).unwrap();
       if (response.success) {
-        localStorage.setItem("success", response.token);
+        localStorage.setItem("isAuth", response.token);
         toast.info("Добро пожаловать!");
         navigate(Path.Home);
       }
@@ -30,8 +30,8 @@ export const useAuth = () => {
   };
 
   const logout = () => {
-    localStorage.setItem("success", "");
-    dispatch(setUserInfo(initialAuthState));
+    localStorage.setItem("isAuth", "");
+    dispatch(setInitialUserData());
     toast.info("До скорой встречи!)");
     navigate(Path.Auth);
   };

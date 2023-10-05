@@ -1,5 +1,5 @@
+import {useGetUserQuery, useLazyGetUserQuery} from "../../store/api/user.api";
 import {setUserInfo} from "../../store/slices/auth.slice";
-import {useGetUserQuery} from "../../store/api/user.api";
 import {INITIAL_STATE} from "../custom-link/constants";
 import {CustomLink} from "../custom-link/custom-link";
 import {useAppDispatch} from "../../hooks/redux";
@@ -13,8 +13,9 @@ export const Header = () => {
   const [activeLink, setActiveLink] = useState<ActiveLink>(INITIAL_STATE);
   const location = useLocation();
   const [count, setCount] = useState(0);
-  const isAuth = localStorage.getItem("success");
+  const isAuth = localStorage.getItem("isAuth");
   const {data} = useGetUserQuery(undefined, {skip: !isAuth});
+  // const [getUser] = useLazyGetUserQuery();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -32,12 +33,11 @@ export const Header = () => {
     <>
       
       <div className="wrapper-header">
-        {HEADER_PAGE_ITEMS.map((item) => {
-          //TODO: Временно
-         
+        {/* <button onClick={()=> getUser(undefined)}>button</button> */}
+        {HEADER_PAGE_ITEMS.map((item, idx) => {
           return (
             <CustomLink
-              key={Math.random()}
+              key={idx}
               path={item.path}
               className={item.className}
               title={item.title}

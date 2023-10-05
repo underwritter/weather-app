@@ -42,12 +42,7 @@ export const RegistrationForm = () => {
     e.preventDefault();
 
     try {
-      const {success} = await registration({
-        email: data.email,
-        password: data.password,
-        name: data.name,
-      }).unwrap();
-
+      const {success} = await registration(data).unwrap();
       if (success) {
         toast.success("Пользователь успешно создан");
         navigate(Path.Auth);
@@ -87,7 +82,7 @@ export const RegistrationForm = () => {
               onChange={onChange}
               errors={errors}
               type="email"
-              placeholder="Логин"
+              placeholder="Email"
             />
           )}
         />

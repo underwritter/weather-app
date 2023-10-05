@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 
 export const AppRouter = () => {
-  const isAuth = localStorage.getItem("success");
+  const isAuth = localStorage.getItem("isAuth");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -31,7 +31,7 @@ export const AppRouter = () => {
         <Route path="/" element={<HomePage />} />
         <Route
           path="*"
-          element={<div> Not Found or You do not have permission.</div>}
+          element={<div>Вы пытаетесь перейти на несуществующую страницу.</div>}
         />
         <Route path="/todo" element={<TodoPage />} />
         <Route path="/weather" element={<WeatherPage />} />

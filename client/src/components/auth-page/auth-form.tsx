@@ -51,7 +51,7 @@ export const AuthForm = () => {
               onChange={onChange}
               errors={errors}
               type="email"
-              placeholder="Логин"
+              placeholder="Email"
             />
           )}
         />

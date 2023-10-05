@@ -26,17 +26,23 @@ interface UserAuthApiProps{
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({baseUrl: "http://localhost:5000/api/auth/"}),
+  // tagTypes:['huy'],
   endpoints: (builder) => ({
     registration: builder.mutation<UserRegistrationApiResponse, UserRegisterApiProps>({
       query: (body) => ({url: `registration`, body, method: "POST",}),
+      // invalidatesTags:['huy']
     }),
     authorization: builder.mutation<UserAuthorizationApiResponse, UserAuthApiProps>({
         query: (body) => ({url: `login`, body, method: "POST",}),        
       }),
       getUser: builder.query<AuthPageState, unknown >({
-        query: () => ({url: 'get_user',headers:{Authorization: localStorage.getItem('success')},}),        
+        query: () => ({url: 'get_user',headers:{Authorization: localStorage.getItem('isAuth')}, }),  
+        // providesTags:['huy']      
       }),
   }),
+  keepUnusedDataFor: 1
 });
 
-export const {useRegistrationMutation, useAuthorizationMutation, useGetUserQuery} = authApi;
+// useLazy - из коробки для гет запросов вызывать функцию для получения данных в любом месте
+
+export const {useRegistrationMutation, useAuthorizationMutation, useGetUserQuery, useLazyGetUserQuery} = authApi;
