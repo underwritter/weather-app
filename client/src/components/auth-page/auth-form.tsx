@@ -4,7 +4,7 @@ import {useForm, Controller} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import "react-toastify/dist/ReactToastify.css";
 import {authSchema} from "./auth-form.schema";
-import {AuthFields} from "./auth-form.types";
+import {IAuthFields} from "./auth-form.types";
 import React, {FormEvent} from "react";
 import {useAuth} from "./auth.hooks";
 import "./style.sass";
@@ -21,7 +21,7 @@ export const AuthForm = () => {
     clearErrors, //при вызове чистит все ошибки формы
     setError, //устанавливает ошибку определенному полю
     setFocus, //фокус на определенном поле
-  } = useForm<AuthFields>({
+  } = useForm<IAuthFields>({
     resolver: yupResolver(authSchema),
     reValidateMode: "onChange",
     defaultValues: {
@@ -32,14 +32,14 @@ export const AuthForm = () => {
 
   const {login} = useAuth();
 
-  const onSubmit = async (data: AuthFields, e: FormEvent<HTMLInputElement>) => {
+  const onLogin = async (data: IAuthFields, e: FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     login(data);
   };
 
   return (
     <div className="form_wrapper">
-      <form onSubmit={handleSubmit(onSubmit)} className="form_">
+      <form onSubmit={handleSubmit(onLogin)} className="form_">
         <div className="_title">Войдите используя почту и пароль</div>
         <Controller
           name="email"

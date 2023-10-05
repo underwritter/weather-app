@@ -4,13 +4,13 @@ import {INITIAL_STATE} from "../custom-link/constants";
 import {CustomLink} from "../custom-link/custom-link";
 import {useAppDispatch} from "../../hooks/redux";
 import React, {useEffect, useState} from "react";
-import {ActiveLink} from "../custom-link/types";
+import {TActiveLink} from "../custom-link/types";
 import {HEADER_PAGE_ITEMS} from "./constants";
 import {useLocation} from "react-router-dom";
 import "./style.sass";
 
 export const Header = () => {
-  const [activeLink, setActiveLink] = useState<ActiveLink>(INITIAL_STATE);
+  const [activeLink, setActiveLink] = useState<TActiveLink>(INITIAL_STATE);
   const location = useLocation();
   const [count, setCount] = useState(0);
   const isAuth = localStorage.getItem("isAuth");

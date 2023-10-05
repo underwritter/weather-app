@@ -1,4 +1,4 @@
-export interface AuthFields {
+export interface IAuthFields {
     email: string;
     password: string;
   }

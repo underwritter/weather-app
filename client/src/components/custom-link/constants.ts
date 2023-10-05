@@ -1,6 +1,6 @@
-import {Link} from "./types";
+import {TLink} from "./types";
 
-export const linkStyle: Record<number, Link> = {
+export const linkStyle: Record<number, TLink> = {
   1: "link activelink",
   0: "link",
 };

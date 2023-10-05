@@ -1,23 +1,23 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import { AuthPageState } from "../slices/auth.slice";
+import { IAuthPageState } from "../slices/auth.slice";
 
-interface UserRegisterApiProps {
+interface IUserRegisterApiProps {
   email: string;
   password: string;
   name: string
 }
 
-interface UserRegistrationApiResponse{
+interface IUserRegistrationApiResponse{
     message: string;
     success: boolean;
 }
 
-interface UserAuthorizationApiResponse{
+interface IUserAuthorizationApiResponse{
     token: string;
     success: boolean;
 }
 
-interface UserAuthApiProps{
+interface IUserAuthApiProps{
     email: string;
     password: string;
 
@@ -28,14 +28,14 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({baseUrl: "http://localhost:5000/api/auth/"}),
   // tagTypes:['huy'],
   endpoints: (builder) => ({
-    registration: builder.mutation<UserRegistrationApiResponse, UserRegisterApiProps>({
+    registration: builder.mutation<IUserRegistrationApiResponse, IUserRegisterApiProps>({
       query: (body) => ({url: `registration`, body, method: "POST",}),
       // invalidatesTags:['huy']
     }),
-    authorization: builder.mutation<UserAuthorizationApiResponse, UserAuthApiProps>({
+    authorization: builder.mutation<IUserAuthorizationApiResponse, IUserAuthApiProps>({
         query: (body) => ({url: `login`, body, method: "POST",}),        
       }),
-      getUser: builder.query<AuthPageState, unknown >({
+      getUser: builder.query<IAuthPageState, unknown >({
         query: () => ({url: 'get_user',headers:{Authorization: localStorage.getItem('isAuth')}, }),  
         // providesTags:['huy']      
       }),

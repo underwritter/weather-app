@@ -1,7 +1,7 @@
 import {InputField} from "../form-fields/input-field/input-field";
 import {useRegistrationMutation} from "../../store/api/user.api";
 import {registrationSchema} from "./registration-form.schema";
-import {RegistrationFields} from "./registration-form.types";
+import {IRegistrationFields} from "./registration-form.types";
 import {CustomButton} from "../custom_button/custom_button";
 import {useForm, Controller} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -23,7 +23,7 @@ export const RegistrationForm = () => {
     clearErrors, //при вызове чистит все ошибки формы
     setError, //устанавливает ошибку определенному полю
     setFocus, //фокус на определенном поле
-  } = useForm<RegistrationFields>({
+  } = useForm<IRegistrationFields>({
     resolver: yupResolver(registrationSchema),
     reValidateMode: "onChange",
     defaultValues: {
@@ -35,8 +35,8 @@ export const RegistrationForm = () => {
   });
   const navigate = useNavigate();
 
-  const onSubmit = async (
-    data: RegistrationFields,
+  const onRegistration = async (
+    data: IRegistrationFields,
     e: FormEvent<HTMLInputElement>
   ) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ export const RegistrationForm = () => {
 
   return (
     <div className="form_wrapper">
-      <form onSubmit={handleSubmit(onSubmit)} className="form_">
+      <form onSubmit={handleSubmit(onRegistration)} className="form_">
         <div className="_title">Зарегистрируйтесь чтобы войти</div>
         <Controller
           name="name"

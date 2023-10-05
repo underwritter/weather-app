@@ -1,6 +1,6 @@
 import {FieldErrors} from "react-hook-form";
 
-export interface FieldProps<T> {
+export interface IFieldProps<T> {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   value?: string;
   name: keyof T;

@@ -1,14 +1,14 @@
 import React, {FC} from "react";
 import "./style.sass";
 
-interface CustomButtonProps {
+interface ICustomButtonProps {
   children: string;
   type: "button" | "submit" | "reset";
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const CustomButton: FC<CustomButtonProps> = ({
+export const CustomButton: FC<ICustomButtonProps> = ({
   children,
   type,
   disabled,
@@ -16,7 +16,7 @@ export const CustomButton: FC<CustomButtonProps> = ({
 }) => {
   return (
     <button
-      className={disabled ? "custom_button" : "disabled"}
+      className={disabled ? "custom_button" : "custom_button_disabled"}
       children={children}
       type={type}
       onClick={onClick}

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {FieldProps} from "../types";
+import {IFieldProps} from "../types";
 import "./style.sass";
 
 export const InputField = <T extends object>({
@@ -9,7 +9,7 @@ export const InputField = <T extends object>({
   name,
   type,
   placeholder,
-}: FieldProps<T>) => {
+}: IFieldProps<T>) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const spanErrMessage = (
     <span className="span_error_message">

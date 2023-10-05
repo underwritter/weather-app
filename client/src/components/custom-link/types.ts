@@ -1,13 +1,13 @@
 import {Path} from "../../constants/path";
 
-export type Link = "link activelink" | "link";
+export type TLink = "link activelink" | "link";
 
-export type ActiveLink = Record<string, number>;
+export type TActiveLink = Record<string, number>;
 
-export interface CustomLinkProps {
+export interface ICustomLinkProps {
   title: string;
   path: Path;
-  linkObj: ActiveLink;
-  setLinkObj: React.Dispatch<React.SetStateAction<ActiveLink>>;
+  linkObj: TActiveLink;
+  setLinkObj: React.Dispatch<React.SetStateAction<TActiveLink>>;
   className?: string;
 }

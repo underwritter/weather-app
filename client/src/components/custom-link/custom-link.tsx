@@ -4,10 +4,10 @@ import {ModalWindow} from "../modal-window/modal-window";
 import {useAuth} from "../auth-page/auth.hooks";
 import React, {FC, useState} from "react";
 import {Path} from "../../constants/path";
-import {CustomLinkProps} from "./types";
+import {ICustomLinkProps} from "./types";
 import {linkStyle} from "./constants";
 
-export const CustomLink: FC<CustomLinkProps> = ({
+export const CustomLink: FC<ICustomLinkProps> = ({
   className = "",
   title = "",
   path,

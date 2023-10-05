@@ -1,6 +1,6 @@
 import {PayloadAction, createSlice} from "@reduxjs/toolkit";
 
-export interface AuthPageState {
+export interface IAuthPageState {
   diskSpace: number;
   email: string;
   files: Array<string>;
@@ -10,7 +10,7 @@ export interface AuthPageState {
   __v: number;
   _id: string;
 }
-export const initialAuthState: AuthPageState = {
+export const initialAuthState: IAuthPageState = {
   diskSpace: 0,
   email: "",
   files: [],
@@ -25,7 +25,7 @@ export const authPageSlice = createSlice({
   name: "authPage",
   initialState: initialAuthState,
   reducers: {
-    setUserInfo(state, action: PayloadAction<AuthPageState>) {
+    setUserInfo(state, action: PayloadAction<IAuthPageState>) {
       Object.assign(state, action.payload);
     },
     setInitialUserData() {

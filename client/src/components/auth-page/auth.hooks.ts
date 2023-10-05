@@ -1,7 +1,7 @@
 import {initialAuthState, setInitialUserData, setUserInfo} from "../../store/slices/auth.slice";
 import {useAuthorizationMutation} from "../../store/api/user.api";
 import {useAppDispatch} from "../../hooks/redux";
-import {AuthFields} from "./auth-form.types";
+import {IAuthFields} from "./auth-form.types";
 import {useNavigate} from "react-router-dom";
 import {Path} from "../../constants/path";
 import {toast} from "react-toastify";
@@ -11,7 +11,7 @@ export const useAuth = () => {
   const navigate = useNavigate();
   const [authorization] = useAuthorizationMutation();
 
-  const login = async (data: AuthFields) => {
+  const login = async (data: IAuthFields) => {
     try {
       const response = await authorization(data).unwrap();
       if (response.success) {
