@@ -21,6 +21,7 @@ export const InputField = <T extends object>({
     type = "text";
     setIsShowPassword(!isShowPassword);
   };
+  const inputTypeByProps = isShowPassword ? (type = "text") : (type = "password")
 
   if (type === "password") {
     return (
@@ -29,7 +30,7 @@ export const InputField = <T extends object>({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          type={isShowPassword ? (type = "text") : (type = "password")}
+          type={inputTypeByProps}
           className="custom_input"
         />
         <div
