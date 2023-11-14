@@ -1,5 +1,5 @@
-import {initialAuthState, setInitialUserData, setUserInfo} from "../../store/slices/auth.slice";
-import {useAuthorizationMutation} from "../../store/api/user.api";
+import {setInitialUserData} from "../../store/slices/auth.slice";
+import {useAuthorizationMutation} from "../../store/api/user.api/user.api";
 import {useAppDispatch} from "../../hooks/redux";
 import {IAuthFields} from "./auth-form.types";
 import {useNavigate} from "react-router-dom";

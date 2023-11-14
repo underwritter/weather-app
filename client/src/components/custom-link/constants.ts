@@ -8,6 +8,6 @@ export const linkStyle: Record<number, TLink> = {
 export const INITIAL_STATE = {
   "/": 0,
   "/weather": 0,
-  "/todo": 0,
+  "/funny": 0,
   "/auth": 0,
 };

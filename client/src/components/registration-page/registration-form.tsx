@@ -1,5 +1,5 @@
 import {InputField} from "../form-fields/input-field/input-field";
-import {useRegistrationMutation} from "../../store/api/user.api";
+import {useRegistrationMutation} from "../../store/api/user.api/user.api";
 import {registrationSchema} from "./registration-form.schema";
 import {IRegistrationFields} from "./registration-form.types";
 import {CustomButton} from "../custom_button/custom_button";
@@ -69,6 +69,7 @@ export const RegistrationForm = () => {
               errors={errors}
               type="text"
               placeholder="Ваше имя"
+              className={"input_variant_M"}
             />
           )}
         />
@@ -83,6 +84,7 @@ export const RegistrationForm = () => {
               errors={errors}
               type="email"
               placeholder="Email"
+              className={"input_variant_M"}
             />
           )}
         />
@@ -97,6 +99,7 @@ export const RegistrationForm = () => {
               errors={errors}
               type="password"
               placeholder="Пароль"
+              className={"input_variant_M"}
             />
           )}
         />
@@ -111,6 +114,7 @@ export const RegistrationForm = () => {
               errors={errors}
               type="password"
               placeholder="Повторите пароль"
+              className={"input_variant_M"}
             />
           )}
         />
@@ -118,7 +122,7 @@ export const RegistrationForm = () => {
         <CustomButton
           children={"Отправить"}
           type={"submit"}
-          disabled={isValid}
+          disabled={!isValid}
         />
       </form>
     </div>

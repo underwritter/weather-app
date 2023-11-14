@@ -16,7 +16,7 @@ export const CustomButton: FC<ICustomButtonProps> = ({
 }) => {
   return (
     <button
-      className={disabled ? "custom_button" : "custom_button_disabled"}
+      className={!disabled ? "custom_button" : "custom_button_disabled"}
       children={children}
       type={type}
       onClick={onClick}

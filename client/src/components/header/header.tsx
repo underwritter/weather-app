@@ -1,4 +1,7 @@
-import {useGetUserQuery, useLazyGetUserQuery} from "../../store/api/user.api";
+import {
+  useGetUserQuery,
+  useLazyGetUserQuery,
+} from "../../store/api/user.api/user.api";
 import {setUserInfo} from "../../store/slices/auth.slice";
 import {INITIAL_STATE} from "../custom-link/constants";
 import {CustomLink} from "../custom-link/custom-link";
@@ -22,7 +25,6 @@ export const Header = () => {
     if (data?._id) {
       dispatch(setUserInfo(data));
     }
-
   }, [data]);
 
   useEffect(() => {
@@ -31,7 +33,6 @@ export const Header = () => {
 
   return (
     <>
-      
       <div className="wrapper-header">
         {/* <button onClick={()=> getUser(undefined)}>button</button> */}
         {HEADER_PAGE_ITEMS.map((item, idx) => {

@@ -7,4 +7,5 @@ export interface IFieldProps<T> {
   type?: React.HTMLInputTypeAttribute;
   errors: FieldErrors<T>;
   placeholder?: string;
+  className: "input_variant_S" | "input_variant_M" | "input_variant_L"
 }

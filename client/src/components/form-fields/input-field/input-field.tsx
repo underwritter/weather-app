@@ -9,6 +9,7 @@ export const InputField = <T extends object>({
   name,
   type,
   placeholder,
+  className,
 }: IFieldProps<T>) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const spanErrMessage = (
@@ -21,7 +22,6 @@ export const InputField = <T extends object>({
     type = "text";
     setIsShowPassword(!isShowPassword);
   };
-  const inputTypeByProps = isShowPassword ? (type = "text") : (type = "password")
 
   if (type === "password") {
     return (
@@ -30,8 +30,8 @@ export const InputField = <T extends object>({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          type={inputTypeByProps}
-          className="custom_input"
+          type={isShowPassword ? (type = "text") : (type = "password")}
+          className={className}/*"custom_input"*/
         />
         <div
           className={isShowPassword ? "hide_password" : "show_password"}
@@ -48,7 +48,7 @@ export const InputField = <T extends object>({
           onChange={onChange}
           placeholder={placeholder}
           type={type}
-          className="custom_input"
+          className={className}
         />
         {spanErrMessage}
       </div>

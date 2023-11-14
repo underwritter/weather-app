@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 
 export interface IModalWindowProps {
-  active: Boolean;
+  isActive: Boolean;
   onClose: VoidFunction;
   children: ReactNode;
 }

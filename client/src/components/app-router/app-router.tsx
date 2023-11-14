@@ -1,6 +1,6 @@
 import {RegistrationPage} from "../registration-page/registration-page";
 import {WeatherPage} from "../weather-page/weather-page";
-import {TodoPage} from "../todos-page/todo-page";
+import {FunnyPage} from "../funny-page/funny-page";
 import {AuthPage} from "../auth-page/auth-page";
 import {HomePage} from "../home-page/home-page";
 import {Path} from "../../constants/path";
@@ -33,7 +33,7 @@ export const AppRouter = () => {
           path="*"
           element={<div>Вы пытаетесь перейти на несуществующую страницу.</div>}
         />
-        <Route path="/todo" element={<TodoPage />} />
+        <Route path="/funny" element={<FunnyPage />} />
         <Route path="/weather" element={<WeatherPage />} />
       </Routes>
     </>

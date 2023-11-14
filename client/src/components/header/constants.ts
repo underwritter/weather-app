@@ -13,8 +13,8 @@ export const HEADER_PAGE_ITEMS = [
   },
   {
     className: "",
-    path: Path.Todo,
-    title: "Список дел",
+    path: Path.Funny,
+    title: "Мемы",
   },
   {
     className: "",
