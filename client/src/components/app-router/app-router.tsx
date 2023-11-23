@@ -28,19 +28,19 @@ export const AppRouter = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path={Path.Home} element={<HomePage />} />
         <Route
           path="*"
           element={<div>Вы пытаетесь перейти на несуществующую страницу.</div>}
         />
-        <Route path="/funny" element={<FunnyPage />} />
-        <Route path="/weather" element={<WeatherPage />} />
+        <Route path={Path.Funny} element={<FunnyPage />} />
+        <Route path={Path.Weather} element={<WeatherPage />} />
       </Routes>
     </>
   ) : (
     <Routes>
-      <Route path="/registration" element={<RegistrationPage />} />
-      <Route path="/auth" element={<AuthPage />} />
+      <Route path={Path.Registration} element={<RegistrationPage />} />
+      <Route path={Path.Auth} element={<AuthPage />} />
     </Routes>
   );
 };

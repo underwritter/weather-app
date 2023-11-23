@@ -53,13 +53,11 @@ export const CustomLink: FC<ICustomLinkProps> = ({
             <CustomButton
               children="Выйти"
               type="button"
-              disabled={false}
               onClick={logout}
             />
             <CustomButton
               children="Остаться"
               type="button"
-              disabled={false}
               onClick={onCloseModal}
             />
           </div>

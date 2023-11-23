@@ -52,7 +52,6 @@ export const TodoItem: FC<ITodoItemProps> = ({todo}) => {
               <CustomButton
                 children="удалить"
                 type="button"
-                disabled={false}
                 onClick={() => handleDeliteTodo(todo)}
               />
             </div>

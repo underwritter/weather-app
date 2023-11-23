@@ -13,7 +13,7 @@ enum MetodsApi {
 export const todosApi = createApi({
   reducerPath: "todosApi",
   baseQuery: fetchBaseQuery({baseUrl: "http://localhost:3000"}),
-  tagTypes: ["huy"],
+  tagTypes: ["todo"],
   endpoints: (builder) => ({
     addTodo: builder.mutation<unknown, ITodosFields>({
       query: (body) => ({
@@ -21,13 +21,13 @@ export const todosApi = createApi({
         body,
         method: MetodsApi.POST,
       }),
-      invalidatesTags: ["huy"],
+      invalidatesTags: ["todo"],
     }),
     getTodos: builder.query<ITodosFields[], string>({
       query: () => ({
         url: `/todos`,
       }),
-      providesTags: ["huy"],
+      providesTags: ["todo"],
     }),
     deliteTodo: builder.mutation<unknown, ITodosFields>({
       query: (body) => ({
@@ -35,7 +35,7 @@ export const todosApi = createApi({
         method: MetodsApi.DELETE,
         body,
       }),
-      invalidatesTags: ["huy"],
+      invalidatesTags: ["todo"],
     }),
     toggleIsDoneTodo: builder.mutation<ITodosFields, {id: number, isDone: boolean}>({
       query: ({ id, isDone}) => ({
@@ -43,7 +43,7 @@ export const todosApi = createApi({
         method: MetodsApi.PATCH,
         body: { isDone },
       }),
-      invalidatesTags: ["huy"],
+      invalidatesTags: ["todo"],
     }),
   }),
   keepUnusedDataFor: 1,

@@ -33,7 +33,6 @@ export const TodoForm: FC<ITodoFormProps> = ({onClose}) => {
   const [setTodosApi] = useAddTodoMutation();
 
   const onCreateTodo = async (body: ITodosFields) => {
-    console.log(body);
     try {
       const response = await setTodosApi({...body, email}).unwrap();
       if (response) {
@@ -71,7 +70,6 @@ export const TodoForm: FC<ITodoFormProps> = ({onClose}) => {
           children={"Закрыть"}
           type={"button"}
           onClick={onClose}
-          disabled={false}
         />
       </div>
     </form>

@@ -8,7 +8,6 @@ import {setWeatherForecast} from "../../store/slices/weather.slice";
 export const WeatherPage = () => {
 const weatherForecast = useAppSelector((state)=>state.weatherPage.forecast)
 const forecastDay = weatherForecast?.forecast?.forecastday
-console.log(forecastDay);
 
   // const toggleDegree = () => {
   //   dispatch(setTemperatureType())
