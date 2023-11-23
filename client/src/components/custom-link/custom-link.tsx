@@ -45,7 +45,7 @@ export const CustomLink: FC<ICustomLinkProps> = ({
     <div className={classLink} onClick={handleLinkClick}>
       {title}
       <ModalWindow
-        active={isOpenModal}
+        isActive={isOpenModal}
         onClose={onCloseModal}
         children={
           <div>
@@ -53,13 +53,11 @@ export const CustomLink: FC<ICustomLinkProps> = ({
             <CustomButton
               children="Выйти"
               type="button"
-              disabled={true}
               onClick={logout}
             />
             <CustomButton
               children="Остаться"
               type="button"
-              disabled={true}
               onClick={onCloseModal}
             />
           </div>

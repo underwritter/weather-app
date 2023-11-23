@@ -3,5 +3,6 @@ export const errValidMessage = {
     errDoblePassword: 'Пароли не совпадают',
     errRequired: 'Поле обязательно',
     errValidSpace: 'Пробелы не допустимы',
+    errWeatherSearch: 'Необходимо указать название города'
 
 }

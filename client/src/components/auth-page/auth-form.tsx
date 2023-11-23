@@ -52,6 +52,7 @@ export const AuthForm = () => {
               errors={errors}
               type="email"
               placeholder="Email"
+              className={"input_variant_M"}
             />
           )}
         />
@@ -66,13 +67,14 @@ export const AuthForm = () => {
               errors={errors}
               type="password"
               placeholder="Пароль"
+              className={"input_variant_M"}
             />
           )}
         />
         <CustomButton
           children={"Отправить"}
           type={"submit"}
-          disabled={isValid}
+          disabled={!isValid}
         />
       </form>
     </div>

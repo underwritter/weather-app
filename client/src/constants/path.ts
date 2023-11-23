@@ -1,7 +1,7 @@
 export enum Path {
     Home = "/",
     Auth = "/auth",
-    Todo = "/todo",
+    Funny = "/funny",
     Weather = "/weather",
     Registration = "/registration"
 }

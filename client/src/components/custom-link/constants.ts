@@ -1,3 +1,4 @@
+import { Path } from "../../constants/path";
 import {TLink} from "./types";
 
 export const linkStyle: Record<number, TLink> = {
@@ -6,8 +7,8 @@ export const linkStyle: Record<number, TLink> = {
 };
 
 export const INITIAL_STATE = {
-  "/": 0,
-  "/weather": 0,
-  "/todo": 0,
-  "/auth": 0,
+  [Path.Home]: 0,
+  [Path.Weather]: 0,
+  [Path.Funny]: 0,
+  [Path.Auth]: 0,
 };

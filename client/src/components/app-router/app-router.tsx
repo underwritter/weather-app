@@ -1,6 +1,6 @@
 import {RegistrationPage} from "../registration-page/registration-page";
 import {WeatherPage} from "../weather-page/weather-page";
-import {TodoPage} from "../todos-page/todo-page";
+import {FunnyPage} from "../funny-page/funny-page";
 import {AuthPage} from "../auth-page/auth-page";
 import {HomePage} from "../home-page/home-page";
 import {Path} from "../../constants/path";
@@ -28,19 +28,19 @@ export const AppRouter = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path={Path.Home} element={<HomePage />} />
         <Route
           path="*"
           element={<div>Вы пытаетесь перейти на несуществующую страницу.</div>}
         />
-        <Route path="/todo" element={<TodoPage />} />
-        <Route path="/weather" element={<WeatherPage />} />
+        <Route path={Path.Funny} element={<FunnyPage />} />
+        <Route path={Path.Weather} element={<WeatherPage />} />
       </Routes>
     </>
   ) : (
     <Routes>
-      <Route path="/registration" element={<RegistrationPage />} />
-      <Route path="/auth" element={<AuthPage />} />
+      <Route path={Path.Registration} element={<RegistrationPage />} />
+      <Route path={Path.Auth} element={<AuthPage />} />
     </Routes>
   );
 };
