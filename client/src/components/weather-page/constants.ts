@@ -1,3 +1,4 @@
+
 import { MaxTemperatureType, MinTemperatureType, TemperatureType } from "./weather.types";
 
 export const days = ["Вс.", "Пн.", "Вт.", "Ср.", "Чт.", "Пт.", "Сб."];
@@ -12,3 +13,6 @@ export const getDegreeByType: Record<(TemperatureType | MaxTemperatureType | Min
     mintemp_c:"°C",
     mintemp_f:"°F",
   };
+
+
+  

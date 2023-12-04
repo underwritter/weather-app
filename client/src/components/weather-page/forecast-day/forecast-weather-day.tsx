@@ -1,24 +1,28 @@
+import { setWeatherForecastHours } from "../../../store/slices/weather.slice";
+import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
+import {days, getDegreeByType, months} from "../constants";
+import {IForecastWeatherDayProps} from "../weather.types";
 import React, {FC} from "react";
-import {days, getDegreeByType, months} from "./constants";
-import {useAppSelector} from "../../hooks/redux";
-import {IForecastWeatherDayProps} from "./weather.types";
-import "./style.sass";
+import "../style.sass";
 
 export const ForecastWeatherDay: FC<IForecastWeatherDayProps> = ({
   weather,
- forecast
+  forecast,
 }) => {
-
-  const { avghumidity, avgvis_km, maxwind_kph, uv, condition,  } = forecast?.day
+  const {avghumidity, maxwind_kph} = forecast?.day;
   const tempType = useAppSelector((state) => state.weatherPage.tempType);
   const date = new Date(forecast?.date);
   const month = months[date.getMonth()];
   const day = days[date.getDay()];
   const wind = Math.round(maxwind_kph * 0.28);
+  const dispatch = useAppDispatch()
+
+  
 
   return (
     <div
       className="weather_day_wrapper"
+      onClick={()=> { dispatch(setWeatherForecastHours(forecast?.hour))}}
       style={
         weather?.current?.is_day === 1
           ? {
@@ -48,7 +52,9 @@ export const ForecastWeatherDay: FC<IForecastWeatherDayProps> = ({
       <div className="temperature">
         <div className="temperature_icon"></div>
         {Math.round(forecast?.day?.[tempType.minTemp])}
-        {getDegreeByType[tempType.minTemp]}- {Math.round(forecast?.day?.[tempType.maxTemp])}
+        {getDegreeByType[tempType.minTemp]}
+        -
+        {Math.round(forecast?.day?.[tempType.maxTemp])}
         {getDegreeByType[tempType.maxTemp]}
       </div>
 
