@@ -1,4 +1,5 @@
 import { setWeatherForecastHours } from "../../../store/slices/weather.slice";
+import { getContainerColorByDay } from "../../../utils/weather-page-utils";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {days, getDegreeByType, months} from "../constants";
 import {IForecastWeatherDayProps} from "../weather.types";
@@ -23,17 +24,7 @@ export const ForecastWeatherDay: FC<IForecastWeatherDayProps> = ({
     <div
       className="weather_day_wrapper"
       onClick={()=> { dispatch(setWeatherForecastHours(forecast?.hour))}}
-      style={
-        weather?.current?.is_day === 1
-          ? {
-              background:
-                "linear-gradient(320deg, rgba(0,232,255,1) 0%, rgba(255,102,0,1) 100%)",
-            }
-          : {
-              background:
-                " linear-gradient(320deg, rgba(2,0,36,1) 44%, rgba(76,23,166,1) 100%)",
-            }
-      }
+      style={getContainerColorByDay(weather?.current?.is_day)}
     >
       <div className="header_weather_day">
         <div className="location">

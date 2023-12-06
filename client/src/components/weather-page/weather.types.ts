@@ -19,3 +19,8 @@ export interface IForecastHourlyProps {
   weather: ResponseWeather;
   ref: React.LegacyRef<HTMLDivElement>;
 }
+
+
+export interface ISearchField {
+  nameByCity: string;
+}

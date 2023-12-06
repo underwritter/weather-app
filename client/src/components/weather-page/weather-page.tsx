@@ -1,9 +1,10 @@
 import {ForecastWeatherDay} from "./forecast-day/forecast-weather-day";
-import {Hour} from "../../store/api/weather.api/weather.api.types";
 import {ForecastHourly} from "./forecast-hour/forecast-hour-card";
 import {SearchForm} from "./search-form/search-form";
 import {useAppSelector} from "../../hooks/redux";
 import React, {useEffect, useRef} from "react";
+import { getElementByTime } from "../../utils/weather-page-utils";
+import "./style.sass";
 
 export const WeatherPage = () => {
   const weatherForecast = useAppSelector((state) => state.weatherPage.forecast);
@@ -15,15 +16,6 @@ export const WeatherPage = () => {
   //   dispatch(setTemperatureType())
   // }
 
-  const getElementByTime = (hour: Hour) => {
-    const selectedDate = new Date(hour.time);
-    const selectedHour = selectedDate.getHours();
-
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours();
-
-    return selectedHour === currentHour;
-  };
 
   useEffect(() => {
     if (hourElemRef.current) {
