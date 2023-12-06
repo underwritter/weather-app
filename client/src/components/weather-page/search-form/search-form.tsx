@@ -1,17 +1,18 @@
-import React, {useEffect} from "react";
+import {ResponseWeather} from "../../../store/api/weather.api/weather.api.types";
+import {setWeatherForecastDay} from "../../../store/slices/weather.slice";
+import {InputField} from "../../form-fields/input-field/input-field";
 import {
   useForecastWeatherByIpQuery,
   useSearchByCityNameMutation,
-} from "../../store/api/weather.api/weather.api";
-import {InputField} from "../form-fields/input-field/input-field";
-import {searchSchema} from "./search-form.schema";
+} from "../../../store/api/weather.api/weather.api";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {Controller, useForm} from "react-hook-form";
-import {useDebounce} from "../../assist/debounce";
-import "./style.sass";
-import {useAppDispatch} from "../../hooks/redux";
-import {setWeatherForecast} from "../../store/slices/weather.slice";
-import {ResponseWeather} from "../../store/api/weather.api/weather.api.types";
+import {useDebounce} from "../../../hooks/debounce";
+import {useAppDispatch} from "../../../hooks/redux";
+import {searchSchema} from "./search-form.schema";
+import { ISearchField } from "../weather.types";
+import React, {useEffect} from "react";
+import "../style.sass";
 
 export const SearchForm = () => {
   const {data} = useForecastWeatherByIpQuery("");
@@ -21,7 +22,7 @@ export const SearchForm = () => {
 
   useEffect(() => {
     if (data) {
-      dispatch(setWeatherForecast(data));
+      dispatch(setWeatherForecastDay(data));
     }
   }, [data]);
 
@@ -29,7 +30,7 @@ export const SearchForm = () => {
     searchDebounce(async () => {
       await searchByCityName(body.nameByCity)
         .unwrap()
-        .then((resp: ResponseWeather) => dispatch(setWeatherForecast(resp)))
+        .then((resp: ResponseWeather) => dispatch(setWeatherForecastDay(resp)))
         .catch(() =>
           setError("nameByCity", {
             type: "custom",
@@ -45,9 +46,7 @@ export const SearchForm = () => {
     nameByCity: "",
   };
 
-  interface ISearchField {
-    nameByCity: string;
-  }
+  
 
   const {
     control,

@@ -1,4 +1,4 @@
-import {ResponseWeather} from "../api/weather.api/weather.api.types";
+import {Hour, ResponseWeather} from "../api/weather.api/weather.api.types";
 import {MaxTemperatureType, MinTemperatureType, TemperatureType} from "./../../components/weather-page/weather.types";
 import {PayloadAction, createSlice} from "@reduxjs/toolkit";
 
@@ -11,6 +11,7 @@ interface ITempType {
 interface IinitialWeatherState {
   tempType: ITempType;
   forecast: ResponseWeather | null;
+  hours: Hour[] | []
 }
 
 export const initialWeatherState: IinitialWeatherState = {
@@ -20,6 +21,8 @@ export const initialWeatherState: IinitialWeatherState = {
     minTemp: "mintemp_c",
   },
   forecast: null,
+  hours: []
+
 };
 
 export const weatherPageSlice = createSlice({
@@ -29,13 +32,17 @@ export const weatherPageSlice = createSlice({
     setTemperatureType(state, action: PayloadAction<ITempType>) {
       state.tempType = action.payload;
     },
-    setWeatherForecast(state, action: PayloadAction<ResponseWeather>) {
+    setWeatherForecastDay(state, action: PayloadAction<ResponseWeather>) {
       state.forecast = action.payload;
+    },
+    setWeatherForecastHours(state, action: PayloadAction<Hour[]>) {
+      state.hours = action.payload;
     },
   },
 });
 
 export const {
   setTemperatureType,
-  setWeatherForecast,
+  setWeatherForecastDay,
+  setWeatherForecastHours
 } = weatherPageSlice.actions;
