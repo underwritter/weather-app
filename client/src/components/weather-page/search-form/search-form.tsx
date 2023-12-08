@@ -26,8 +26,9 @@ export const SearchForm = () => {
     }
   }, [data]);
 
-  const searchByName = (body: ISearchField) => {
-    searchDebounce(async () => {
+  const searchByName = (body: ISearchField)=> {
+
+  searchDebounce(async () => {
       await searchByCityName(body.nameByCity)
         .unwrap()
         .then((resp: ResponseWeather) => dispatch(setWeatherForecastDay(resp)))

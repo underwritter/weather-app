@@ -1,7 +1,7 @@
-import { getContainerColorByDay } from "../../../utils/weather-page-utils";
-import React, {CSSProperties, FC, LegacyRef, forwardRef} from "react";
+import {getContainerColorByDay} from "../../../utils/weather-page-utils";
 import {IForecastHourlyProps} from "../weather.types";
 import {useAppSelector} from "../../../hooks/redux";
+import React, {LegacyRef, forwardRef} from "react";
 import {getDegreeByType} from "../constants";
 import "../style.sass";
 
@@ -10,8 +10,6 @@ export const ForecastHourly = forwardRef(
     const date = new Date(hour.time);
     const tempType = useAppSelector((state) => state.weatherPage.tempType);
     const icon = hour?.condition?.icon;
-
-  
 
     return (
       <div

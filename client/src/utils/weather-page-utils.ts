@@ -1,13 +1,12 @@
 import {Hour} from "../store/api/weather.api/weather.api.types";
 
-export const getElementByTime = (hour: Hour) => {
+export const getElementByTime = (hour: Hour, currentDayTab: number) => {
   const selectedDate = new Date(hour.time);
   const selectedHour = selectedDate.getHours();
-
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
 
-  return selectedHour === currentHour;
+  return selectedHour === currentHour && currentDayTab === 0;
 };
 
 export const getContainerColorByDay = (isDay: number) => {
