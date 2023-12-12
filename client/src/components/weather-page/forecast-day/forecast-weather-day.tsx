@@ -1,5 +1,5 @@
-import { setWeatherForecastHours } from "../../../store/slices/weather.slice";
-import { getContainerColorByDay } from "../../../utils/weather-page-utils";
+import {setWeatherForecastHours} from "../../../store/slices/weather.slice";
+import {getContainerColorByDay} from "../../../utils/weather-page-utils";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {days, getDegreeByType, months} from "../constants";
 import {IForecastWeatherDayProps} from "../weather.types";
@@ -9,6 +9,7 @@ import "../style.sass";
 export const ForecastWeatherDay: FC<IForecastWeatherDayProps> = ({
   weather,
   forecast,
+  onClick,
 }) => {
   const {avghumidity, maxwind_kph} = forecast?.day;
   const tempType = useAppSelector((state) => state.weatherPage.tempType);
@@ -16,14 +17,14 @@ export const ForecastWeatherDay: FC<IForecastWeatherDayProps> = ({
   const month = months[date.getMonth()];
   const day = days[date.getDay()];
   const wind = Math.round(maxwind_kph * 0.28);
-  const dispatch = useAppDispatch()
-
-  
+  const dispatch = useAppDispatch();
 
   return (
     <div
       className="weather_day_wrapper"
-      onClick={()=> { dispatch(setWeatherForecastHours(forecast?.hour))}}
+      onClick={() => {
+        onClick(), dispatch(setWeatherForecastHours(forecast?.hour));
+      }}
       style={getContainerColorByDay(weather?.current?.is_day)}
     >
       <div className="header_weather_day">
@@ -43,8 +44,7 @@ export const ForecastWeatherDay: FC<IForecastWeatherDayProps> = ({
       <div className="temperature">
         <div className="temperature_icon"></div>
         {Math.round(forecast?.day?.[tempType.minTemp])}
-        {getDegreeByType[tempType.minTemp]}
-        -
+        {getDegreeByType[tempType.minTemp]}—
         {Math.round(forecast?.day?.[tempType.maxTemp])}
         {getDegreeByType[tempType.maxTemp]}
       </div>
